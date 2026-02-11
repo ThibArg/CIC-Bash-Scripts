@@ -37,7 +37,8 @@ echo "Getting a token..."
 TOKEN="$(get_cic_bearer_token \
   "$CIC_AUTH_BASE_URL/connect/token" \
   "$CIC_ENRICHMENT_CLIENT_ID" \
-  "$CIC_ENRICHMENT_CLIENT_SECRET")"
+  "$CIC_ENRICHMENT_CLIENT_SECRET" \
+  "environment_authorization")"
 
 # ============================================================
 # Upload
@@ -178,7 +179,7 @@ echo "Requesting enrichment DONE"
 # ============================================================
 echo ""
 echo "Now polling for results for processingId: $processing_id..."
-poll_processing_results "$CIC_ENRICHMENT_BASE_URL" "$processing_id" "$TOKEN"
+poll_ke_processing_results "$CIC_ENRICHMENT_BASE_URL" "$processing_id" "$TOKEN"
 
 
 # ============================================================
